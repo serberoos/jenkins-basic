@@ -1,6 +1,19 @@
 #docker-compose.yaml
 version : '3'
 services:
+  spring-boot:
+    build:
+      context: ./plee-auth
+      dockerfile: Dockerfile
+    image: plee_auth
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    container_name: plee_auth
+    restart: always
+    depends_on:
+
+
   jenkins:
     image: jenkins/jenkins:lts
     container_name: jenkins
